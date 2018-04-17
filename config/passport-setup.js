@@ -49,6 +49,8 @@ passport.use(new LinkedInStrategy({
                 
                     //thumbnail: profile._json.image.url
                     }).save().then((newUser) => {
+                        console.log(profile)
+
                     console.log('created new user: ', newUser);
                     done(null, newUser);
                 });
@@ -80,8 +82,10 @@ passport.use(new InstagramStrategy({
                 new User({
                         instagramId: profile.id,
                     username: profile.displayName,
-                    //thumbnail: profile._json.image.url
+                    thumbnail: profile._json.data.profile_picture
                 }).save().then((newUser) => {
+                                            console.log(profile)
+
                     console.log('created new user: ', newUser);
                         done(null, newUser);
                 });
@@ -115,9 +119,11 @@ passport.use(new GitHubStrategy({
             } else {
                 new User({
                     githubId: profile.id,
-                    username: profile.displayName,
+                    username: profile.username,
                     //thumbnail: profile._json.image.url
                 }).save().then((newUser) => {
+                                                            console.log(profile)
+
                     console.log('created new user: ', newUser);
                       cb(null, newUser);
                 });
