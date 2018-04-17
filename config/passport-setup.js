@@ -155,9 +155,9 @@ passport.use(new TwitterStrategy({
                     twitterId: profile.id,
                     username: profile.displayName,
                     data: profile,
-                    // thumbnail: profile._json.url
+                     thumbnail: profile._json.profile_image_url
                 }).save().then((newUser) => {
-                                       // console.log(profile)
+                                        console.log(profile)
 console.log('created new user: ', newUser);
                    return cb(null, newUser);
                 });
