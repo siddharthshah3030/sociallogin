@@ -120,7 +120,7 @@ passport.use(new GitHubStrategy({
                 new User({
                     githubId: profile.id,
                     username: profile.username,
-                    //thumbnail: profile._json.image.url
+                    thumbnail: profile.photos[0].value,
                 }).save().then((newUser) => {
                                                             console.log(profile)
 
